@@ -65,7 +65,7 @@ mysql_select_db('book');
 									$query = "update seat set salable='yes' where PNR = '" . $aSeat[$i] . "'";
 									$result = mysql_query($query);
 								}
-								echo "<div class='alert alert-success'>Your ticket(s) is(are) cancelled. You will be automatically redirected after 5 seconds.</div>";
+								echo "<div class='alert alert-success'>Your ticket(s) is(are) Available for other users. You will be automatically redirected after 5 seconds.</div>";
 								header("refresh: 5; index.php");
 							}   
 						}

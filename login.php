@@ -15,7 +15,7 @@ $result=mysqli_query($con,$sql);
         $_SESSION['message']="You are now Loggged In";
         $_SESSION['uname']=$uid;
        
-     header("location:rajat.php");
+     header("location:kart/front-login.html");
     }
    else
    {

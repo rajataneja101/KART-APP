@@ -1,0 +1,24 @@
+/*Parallax section*/
+#section-1 {
+    z-index: 1;
+    color: #fff;
+    height: 100vh;
+}
+#section-1 .row {
+    position: fixed;
+}
+/*Parallax background*/
+#section-1 .parallax-layer-back {
+    background: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(2).jpg")no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*Section with dummy content*/
+#section-2 {
+    z-index: 2;
+    position: relative;
+    background: #fff;
+    width: 100%;
+}

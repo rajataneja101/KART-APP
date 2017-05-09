@@ -1,0 +1,77 @@
+html,
+body,
+.view {
+    height: 100%;
+}
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+    margin-bottom: 0px;
+}
+#best-features{
+  margin-top: 30px;
+}
+footer.page-footer {
+  padding-top: 0px;
+}
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+#sign-in-block{
+  width: 40%;
+  margin-left: 30%;
+}
+#sign-up-block{
+  width: 40%;
+  margin-left: 30%;
+}
+@media only screen and (max-width: 768px){
+  #sign-in-block{
+    width: 100%;
+    margin-left: 0%;
+  }
+  #sign-up-block{
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+.card{
+  padding: 5%;
+}
+.top-nav-collapse {
+    background-color: #3c4f74;
+}
+
+footer.page-footer {
+    background-color: #3c4f74;
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #1C2331;
+    }
+}
+/*Call to action*/
+
+.flex-center {
+    color: #fff;
+}
+
+.view {
+    background: url("https://ayush3107.000webhostapp.com/img/carousel.jpg") center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*Contact section*/
+
+#contact .fa {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1C2331;
+}

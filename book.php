@@ -1,24 +1,4 @@
-<!--
 
-<Ticket-Booking>
-Copyright (C) <2013>  
-<Abhijeet Ashok Muneshwar>
-<openingknots@gmail.com>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or 
-any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
 
 
 <!DOCTYPE HTML>
@@ -27,17 +7,74 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<HEAD>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Boot the ticket</title>
+		<title>Booking Summary</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
 	</HEAD>
+	<style>
+  .services-section {
+  background-color: #F9F9F9;
+}
+
+.services-section hr {
+  border-bottom: 2px solid #24b662;
+  width: 40px;
+  margin-left: 0px;
+}
+
+.services-section .services-detail {
+
+  border-radius: 4px;
+  border-bottom-right-radius: 20%;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 2px 0px rgba(90, 91, 95, 0.15);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: 0px;
+  padding: 60px 40px 60px 40px;
+  margin-top: 32px;
+}
+
+.services-section .services-detail:hover {
+  border-bottom-right-radius: 4px;
+  box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
+  top: -5px;
+}
+
+.services-section .services-detail .fa {
+  font-size: 42px;
+}
+</style>
+
 
 	<BODY>
+	<nav class="navbar fixed-top navbar-toggleable-md navbar-dark" style="background: rgb(2,11,28); padding-bottom: 25px;">
+    <div class="container">
+        <a class="navbar-brand" href="/kart/front-login.html">
+            <strong>SPI-Cinema</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                  <a class="nav-link" href="sign-up.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign-Up</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="sign-in.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign-In</a>
+              </li>
+          </ul>
+        </div>
+    </div>
+   </nav>
+   <section id="services" class="services-section section-space-padding">
+        <div class="container">
+           
+            <div class="span12">
+            <div class="services-detail" style="padding-top:80px">
 
 		<br>
 		<div class="container">
 	        <div class="page-header">
-	            <h1>Book the tickets</h1>
+	            <center><h1>Book the tickets</h1></center>
 	        </div>			
 			<?php
 			include('db_login.php');
@@ -70,7 +107,7 @@ if($row = mysql_fetch_assoc($result))
 					elseif (isset($_GET['e'])) echo "<div class=\"alert alert-error\">".$_GET['e']."</div>";
 
 			?> 
-			<form name="contactForm" action="register-booking.php" method="POST" class="form-horizontal">
+			<form name="contactForm" id="contactForm" action="register-booking.php" method="POST" class="form-horizontal">
 				<div class='control-group'>
 					<label class='control-label' for='input1'>Seat Numbers</label>
 					<div class='controls'>
@@ -103,20 +140,50 @@ if($row = mysql_fetch_assoc($result))
 						}
 						echo "<div class='control-group'>";
 							echo "<label class='control-label' for='babysitting'>baby-sitting?</label>";
+
+							
 							echo "<div class='controls'>";
-							echo "<input type='checkbox' value='babysitting' name='babysitting'>";
+							echo '
+							<select id="bs" name="baby-sitting">
+  								<option value="0">0</option>
+  								<option value="1">1</option>
+  								<option value="2">2</option>
+  								<option value="3">3</option>
+  								<option value="4">4</option>
+							</select> Price per service Rs.50/-' ;
+							
 							echo "</div>";
 							echo "</div>";
 							echo "<div class='control-group'>";
-							echo "<label class='control-label' for='price'>Price</label>";
+							echo "<label class='control-label' for='babysitting'>Handicapped people?</label>";
+
+							
 							echo "<div class='controls'>";
-							echo "<input type='text' value='$price' name='price' readonly>";
+							echo '
+							<select id="bs" name="baby-sitting">
+  								<option value="0">0</option>
+  								<option value="1">1</option>
+  								<option value="2">2</option>
+  								<option value="3">3</option>
+  								<option value="4">4</option>
+							</select> Price per service Rs.50/-' ;
+							
+							echo "</div>";
+
+							echo "<div class='control-group'>";
+							echo "<label class='control-label' for='price'>Price of Ticket</label>";
+							echo "<div class='controls'>";
+							echo "<input type='text' value='$price' name='price' id='price' readonly>";
 							echo "</div>";
 							echo "</div>";
-							echo "<input type='hidden' value='$c' name='reward'>";
+							echo "<center>";
+							echo "<div>";
+							echo "<center><input type='hidden' value='$c' name='reward'></center>";
+							
+  							echo "</center>";
 					?>
-	            
-	            <div class="form-actions">
+	            <center>
+	            <div>
 	                <input type="hidden" name="save" value="contact">
 					<button type="submit" class="btn btn-info">
 						<i class="icon-ok icon-white"></i> Book
@@ -126,12 +193,81 @@ if($row = mysql_fetch_assoc($result))
 						<i class="icon-refresh icon-black"></i> Clear
 					</button>
 	            </div>
-
+</center>
 			</form>
 		</div>
+		 </div>
+            </div>
+                
+            
+        </div>
+</section>
 
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/jquery-latest.min.js">\x3C/script>')</script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+			<script>
+var calculateTax = function(event) {
+  event.preventDefault();
+  var price = document.getElementById("price").value;
+  var tax = .0825;
+  document.getElementById("total").value = price * tax;
+}
+var form = document.getElementById('contactForm');
+form.addEventListener('submit', calculateTax, false);
+</script>
+		</script>
+		<footer class="page-footer center-on-small-only"  style="background: rgb(3,6,15);">
+
+    <!--Footer Links-->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!--First column-->
+            <div class="col-md-3 offset-md-1">
+                <p>About Us</p>
+                
+            </div>
+            
+            
+            
+            
+            
+            <!--/.First column-->
+
+            <hr class="hidden-md-up">
+
+            <!--Copyright-->
+    <div class="col-md-4 text-center">
+            <div class="container-fluid">
+
+            © 2015 Copyright 2017 team KART</a>
+</div>
+        
+    </div>
+    <!--/.Copyright-->
+
+           
+
+     <div class="col-md-3 offset-md-1">
+                <p>Designed by KART</p>
+                
+            </div>      
+
+        
+    </div>
+    </div>
+    <!--/.Footer Links-->
+
+    
+
+    <!--Social buttons-->
+    
+    <!--/.Social buttons-->
+
+    
+
+</footer>
 	</BODY>
 </HTML>

@@ -1,24 +1,4 @@
-<!--
 
-<Ticket-Booking>
-Copyright (C) <2013>  
-<Abhijeet Ashok Muneshwar>
-<openingknots@gmail.com>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
- any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
 
 <?php
 include('db_login.php');
@@ -50,7 +30,26 @@ $userid = $_SESSION['uname'];
 		<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
 	</HEAD>
 
-	<BODY>
+	<BODY style="background-image: url(tab.jpg)">
+	<nav class="navbar fixed-top navbar-toggleable-md navbar-dark" style="background: rgb(2,11,28); padding-bottom: 30px;">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <strong>SPI-Cinema</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                  <a class="nav-link" href="sign-up.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign-Up</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="sign-in.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign-In</a>
+              </li>
+          </ul>
+        </div>
+    </div>
+   </nav>
+
+	
 		<br><br><br>
 		<div class="container">
 			<div class="row">
@@ -91,8 +90,8 @@ $userid = $_SESSION['uname'];
 										echo "<td>";
 										echo "</td>";
 										echo "<td>";
-											echo '<button type="submit" name="formSubmit" class="btn btn-info">';
-												echo '<i class="icon-ok icon-white"></i> Submit';
+										echo '<button type="submit" name="formSubmit" onclick="javascript:resale()">';
+												echo '<i class="icon-ok icon-white"></i> Resale';
 											echo '</button>';
 										echo "</td>";
 										echo "<td>";
@@ -101,9 +100,7 @@ $userid = $_SESSION['uname'];
 											echo '</button>';
 										echo "</td>";
 										echo "<td>";
-										echo '<button type="submit" name="formSubmit" onclick="javascript:resale()">';
-												echo '<i class="icon-ok icon-white"></i> Resale';
-											echo '</button>';
+										
 										echo "</td>";
 									echo "</tr>";
 									echo "</tbody>";
@@ -141,5 +138,7 @@ $userid = $_SESSION['uname'];
     return true;
 			}
 		</script>
+		
+		
 	</BODY>
 </HTML>
